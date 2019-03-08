@@ -41,6 +41,7 @@ install: travis_wait 30 docker pull justadudewhohacks/opencv4nodejs-ci:$TAG
 script:
   - cd ./ci/$BUILD_TASK
   - npm run $BUILD_TASK $TAG
+  - cd -
 
 after_success:
   - if [[ $TRAVIS_TAG != "" ]]; then
