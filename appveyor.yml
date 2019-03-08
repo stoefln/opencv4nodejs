@@ -58,6 +58,6 @@ test_script:
   - npm run test-externalMemTracking
 
 on_success:
-  - IF defined APPVEYOR_REPO_TAG_NAME npm run prebuild -- -u %GITHUB_TOKEN%
-  - IF defined APPVEYOR_REPO_TAG_NAME npm run prebuild -- -r electron -u %GITHUB_TOKEN%
-  - IF defined APPVEYOR_REPO_TAG_NAME npm run prebuild -- -r node-webkit -u %GITHUB_TOKEN%
+  - IF defined APPVEYOR_REPO_TAG_NAME npm install && npm run prebuild -- -u %GITHUB_TOKEN%
+  - IF defined APPVEYOR_REPO_TAG_NAME npm install && npm run prebuild -- -r electron -u %GITHUB_TOKEN%
+  - IF defined APPVEYOR_REPO_TAG_NAME npm install && npm run prebuild -- -r node-webkit -u %GITHUB_TOKEN%
