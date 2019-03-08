@@ -43,6 +43,9 @@ script:
   - npm run $BUILD_TASK $TAG
 
 after_success:
+  - if [[ $TRAVIS_TAG != "" ]]; then npm run prebuild -- -u $GITHUB_TOKEN; fi
+  - if [[ $TRAVIS_TAG != "" ]]; then npm run prebuild -- -u -r electron $GITHUB_TOKEN; fi
+  - if [[ $TRAVIS_TAG != "" ]]; then npm run prebuild -- -u -r node-webkit $GITHUB_TOKEN; fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
     npm run codecov -- -t $CODECOV_TOKEN;
