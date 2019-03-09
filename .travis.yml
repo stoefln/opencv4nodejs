@@ -49,9 +49,8 @@ script:
 
 after_success:
   - if [[ $TRAVIS_TAG != "" && $BUILD_TASK == "prebuild" ]]; then
-    cd ./ci/$BUILD_TASK;
-    npm run $BUILD_TASK $TAG;
-    cd -;
+    npm install;
+    npm run prebuild -- -u $GITHUB_TOKEN;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
