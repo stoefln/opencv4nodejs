@@ -1,8 +1,5 @@
 {
   "scripts": {
     "prebuild": "bash ./prebuild.sh"
-  },
-  "dependencies": {
-    "prebuild": "^8.2.0"
   }
 }
