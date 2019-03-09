@@ -45,10 +45,9 @@ script:
 
 after_success:
   - if [[ $TRAVIS_TAG != "" ]]; then
-    npm install;
-    npm run prebuild -- -u $GITHUB_TOKEN;
-    npm run prebuild -- -u -r electron $GITHUB_TOKEN;
-    npm run prebuild -- -u -r node-webkit $GITHUB_TOKEN;
+    npm run prebuild -- -t "${$(node -v):1}" -u $GITHUB_TOKEN;
+    npm run prebuild -- -t "${$(node -v):1}" -r electron -u $GITHUB_TOKEN;
+    npm run prebuild -- -t "${$(node -v):1}" -r node-webkit -u $GITHUB_TOKEN;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
