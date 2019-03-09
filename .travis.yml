@@ -35,6 +35,7 @@ env:
 
 before_install:
   - chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh
+  - npm i -g prebuild
 
 install: travis_wait 30 docker pull justadudewhohacks/opencv4nodejs-ci:$TAG
 
@@ -45,10 +46,7 @@ script:
 
 after_success:
   - if [[ $TRAVIS_TAG != "" ]]; then
-    npm install;
     npm run prebuild -- -u $GITHUB_TOKEN;
-    npm run prebuild -- -r electron -u $GITHUB_TOKEN;
-    npm run prebuild -- -r node-webkit -u $GITHUB_TOKEN;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;

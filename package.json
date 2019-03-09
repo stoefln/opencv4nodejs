@@ -1,6 +1,6 @@
 {
   "name": "opencv4nodejs",
-  "version": "4.14.5",
+  "version": "4.14.9",
   "description": "Asynchronous OpenCV 3.x nodejs bindings with JavaScript and TypeScript API.",
   "private": true,
   "keywords": [
