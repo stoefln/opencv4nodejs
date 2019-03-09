@@ -42,16 +42,16 @@ install: travis_wait 30 docker pull justadudewhohacks/opencv4nodejs-ci:$TAG
 
 script:
   - if [[ $BUILD_TASK != "prebuild" ]]; then
-    cd ./ci/$BUILD_TASK
-    npm run $BUILD_TASK $TAG
-    cd -
+    cd ./ci/$BUILD_TASK;
+    npm run $BUILD_TASK $TAG;
+    cd -;
     fi
 
 after_success:
   - if [[ $TRAVIS_TAG != "" && $BUILD_TASK == "prebuild" ]]; then
-    cd ./ci/$BUILD_TASK
-    npm run $BUILD_TASK $TAG
-    cd -
+    cd ./ci/$BUILD_TASK;
+    npm run $BUILD_TASK $TAG;
+    cd -;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
