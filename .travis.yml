@@ -37,7 +37,7 @@ env:
 
 before_install:
   - if [[ $BUILD_TASK != "prebuild" ]]; then
-    chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh
+    chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh;
     fi
 
 install: travis_wait 30 docker pull justadudewhohacks/opencv4nodejs-ci:$TAG
