@@ -92,9 +92,7 @@ matrix:
         - BUILD_TASK=prebuild
 
 before_install:
-  - if [[ $BUILD_TASK != "prebuild" ]]; then
-    chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh;
-    fi
+  - chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh;
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 30 docker pull justadudewhohacks/opencv4nodejs-ci:$TAG; fi
@@ -109,8 +107,9 @@ script:
 
 after_success:
   - if [[ $TRAVIS_TAG != "" && $BUILD_TASK == "prebuild" ]]; then
-    npm install;
-    npm run prebuild -- --tag-prefix "" -u $GITHUB_TOKEN;
+    cd ./ci/$BUILD_TASK;
+    npm run $BUILD_TASK $TAG;
+    cd -;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
