@@ -110,7 +110,7 @@ script:
 after_success:
   - if [[ $TRAVIS_TAG != "" && $BUILD_TASK == "prebuild" ]]; then
     npm install;
-    npm run prebuild -- -u $GITHUB_TOKEN;
+    npm run prebuild -- --tag-prefix "" -u $GITHUB_TOKEN;
     fi
   - if [ $BUILD_TASK = 'cover' ]; then
     npm install;
