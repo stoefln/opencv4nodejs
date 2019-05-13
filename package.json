@@ -33,6 +33,7 @@
   "main": "./lib/opencv4nodejs.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
+    "preinstall": "node ./install.js",
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "configure": "node-gyp configure",
     "build": "node-gyp configure build",
@@ -46,13 +47,13 @@
     "macro-inferno": "^0.2.3",
     "nan": "^2.12.1",
     "native-node-utils": "^0.1.5",
-    "prebuild-install": "^5.3.0",
-    "@nut-tree/opencv-build": "^1.0.0"
+    "prebuild-install": "^5.3.0"
   },
   "optionalDependencies": {
     "@types/node": ">6"
   },
   "devDependencies": {
     "prebuild": "^8.2.0"
-  }
+  },
+  "opencv": "3.4.6-beta3"
 }
