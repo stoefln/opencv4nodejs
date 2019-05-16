@@ -49,7 +49,7 @@ environment:
       OPENCV4NODEJS_DISABLE_AUTOBUILD: 1
 
 install:
-  - cmd: choco install OpenCV -y -version %OPENCV_VERSION%
+  # - cmd: choco install OpenCV -y -version %OPENCV_VERSION%
   - IF EXIST c:\tools\opencv* CD c:\tools\opencv*
   - SET OPENCV_INCLUDE_DIR=%CD%\build\include
   - SET OPENCV_LIB_DIR=%CD%\build\x64\vc14\lib
