@@ -14,45 +14,17 @@ env:
 matrix:
   include:
     - os: linux
+      node_js: '8'
       env:
         - BUILD_TASK=test
-          TAG=3.0.0-contrib-node6
     - os: linux
+      node_js: '10'
       env:
         - BUILD_TASK=test
-          TAG=3.1.0-contrib-node6
     - os: linux
+      node_js: '11'
       env:
         - BUILD_TASK=test
-          TAG=3.2.0-contrib-node6
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.3.0-contrib-node6
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.4.0-contrib-world-node6
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.4.6-node6
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.4.6-contrib-node6
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.4.6-contrib-node8
-    - os: linux
-      env:
-        - BUILD_TASK=test
-          TAG=3.4.6-contrib-node10
-    - os: linux
-      node_js: '6'
-      env:
-        - BUILD_TASK=prebuild
     - os: linux
       node_js: '8'
       env:
@@ -63,14 +35,6 @@ matrix:
         - BUILD_TASK=prebuild
     - os: linux
       node_js: '11'
-      env:
-        - BUILD_TASK=prebuild
-    - os: osx
-      node_js: '6'
-      env:
-        - BUILD_TASK=test
-    - os: osx
-      node_js: '6'
       env:
         - BUILD_TASK=prebuild
     - os: osx
