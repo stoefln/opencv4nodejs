@@ -1,6 +1,6 @@
 {
   "name": "@nut-tree/opencv4nodejs-prebuilt",
-  "version": "4.15.0-b3",
+  "version": "4.15.0-b4",
   "description": "This is a fork of opencv4nodejs which provides pre-build binaries",
   "keywords": [
     "opencv",
