@@ -13,50 +13,50 @@ env:
 
 matrix:
   include:
+    # - os: linux
+    #   node_js: '8'
+    #   env:
+    #     - BUILD_TASK=test
+    # - os: linux
+    #   node_js: '10'
+    #   env:
+    #     - BUILD_TASK=test
+    # - os: linux
+    #   node_js: '11'
+    #   env:
+    #     - BUILD_TASK=test
     - os: linux
       node_js: '8'
       env:
-        - BUILD_TASK=test
+        - BUILD_TASK=prebuild
     - os: linux
       node_js: '10'
       env:
-        - BUILD_TASK=test
+        - BUILD_TASK=prebuild
     - os: linux
       node_js: '11'
       env:
-        - BUILD_TASK=test
-    - os: linux
-      node_js: '8'
-      env:
         - BUILD_TASK=prebuild
-    - os: linux
-      node_js: '10'
-      env:
-        - BUILD_TASK=prebuild
-    - os: linux
-      node_js: '11'
-      env:
-        - BUILD_TASK=prebuild
-    - os: osx
-      node_js: '8'
-      env:
-        - BUILD_TASK=test
+    # - os: osx
+    #   node_js: '8'
+    #   env:
+    #     - BUILD_TASK=test
     - os: osx
       node_js: '8'
       env:
         - BUILD_TASK=prebuild
-    - os: osx
-      node_js: '10'
-      env:
-        - BUILD_TASK=test
+    # - os: osx
+    #   node_js: '10'
+    #   env:
+    #     - BUILD_TASK=test
     - os: osx
       node_js: '10'
       env:
         - BUILD_TASK=prebuild
-    - os: osx
-      node_js: '11'
-      env:
-        - BUILD_TASK=test
+    # - os: osx
+    #   node_js: '11'
+    #   env:
+    #     - BUILD_TASK=test
     - os: osx
       node_js: '11'
       env:
