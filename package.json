@@ -34,7 +34,7 @@
   "typings": "./lib/index.d.ts",
   "scripts": {
     "preinstall": "node ./install.js",
-    "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
+    "install": "prebuild-install --tag-prefix \"\" --verbose || node-gyp rebuild",
     "configure": "node-gyp configure",
     "build": "node-gyp configure build",
     "rebuild": "node-gyp rebuild",
@@ -55,5 +55,5 @@
   "devDependencies": {
     "prebuild": "^8.2.0"
   },
-  "opencv": "3.4.6-beta27"
+  "opencv": "3.4.6-beta28"
 }
