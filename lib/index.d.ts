@@ -15,7 +15,6 @@ export * from './typings/Rect.d';
 export * from './typings/RotatedRect.d';
 export * from './typings/TermCriteria.d';
 export * from './typings/Contour.d';
-export * from './typings/Moments.d';
 export * from './typings/FaceRecognizer.d';
 export * from './typings/EigenFaceRecognizer.d';
 export * from './typings/LBPHFaceRecognizer.d';

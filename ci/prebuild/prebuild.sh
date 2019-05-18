@@ -5,4 +5,5 @@ then
 fi
 cd ../../ &&\
 npm install --unsafe-perm &&\
+npm test
 npm run prebuild -- --tag-prefix "" -u $GITHUB_TOKEN;

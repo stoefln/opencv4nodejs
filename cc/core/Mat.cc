@@ -1,11 +1,6 @@
 #include "Mat.h"
 #include "MatImgproc.h"
-#include "MatCalib3d.h"
 #include "MatBindings.h"
-
-#ifdef HAVE_XIMGPROC
-#include "MatXimgproc.h"
-#endif // HAVE_XIMGPROC
 
 Nan::Persistent<v8::FunctionTemplate> Mat::constructor;
 
@@ -103,7 +98,7 @@ NAN_MODULE_INIT(Mat::Init) {
   Nan::SetPrototypeMethod(ctor, "eigenAsync", EigenAsync);
   Nan::SetPrototypeMethod(ctor, "solve", Solve);
   Nan::SetPrototypeMethod(ctor, "solveAsync", SolveAsync);
-    
+
 #if CV_VERSION_MINOR > 1
   Nan::SetPrototypeMethod(ctor, "rotate", Rotate);
   Nan::SetPrototypeMethod(ctor, "rotateAsync", RotateAsync);
@@ -115,10 +110,6 @@ NAN_MODULE_INIT(Mat::Init) {
   FF_PROTO_SET_MAT_OPERATIONS(ctor);
 
   MatImgproc::Init(ctor);
-  MatCalib3d::Init(ctor);
-  #ifdef HAVE_XIMGPROC
-  MatXimgproc::Init(ctor);
-  #endif // HAVE_XIMGPROC
 
   target->Set(Nan::New("Mat").ToLocalChecked(), ctor->GetFunction());
 };

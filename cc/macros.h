@@ -64,9 +64,6 @@
 #define FF_UNWRAP_SIZE(obj)	FF_UNWRAP(obj, Size)
 #define FF_UNWRAP_SIZE_AND_GET(obj)	FF_UNWRAP_SIZE(obj)->size
 
-#define FF_UNWRAP_CONTOUR(obj) FF_UNWRAP(obj, Contour)
-#define FF_UNWRAP_CONTOUR_AND_GET(obj) FF_UNWRAP_CONTOUR(obj)->contour
-
 #define FF_UNWRAP_RECT(obj) FF_UNWRAP(obj, Rect)
 #define FF_UNWRAP_RECT_AND_GET(obj)	FF_UNWRAP_RECT(obj)->rect
 

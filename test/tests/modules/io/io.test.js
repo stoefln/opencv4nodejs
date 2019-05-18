@@ -17,9 +17,6 @@ const {
 
 const { expect } = require('chai');
 
-const videoCaptureTests = require('./videoCaptureTests');
-const videoWriterTests = require('./videoWriterTests');
-
 describe('io', () => {
   let lenna;
   let got;
@@ -35,12 +32,6 @@ describe('io', () => {
     lennaBase64Buf = Buffer.from(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/lennaBase64.json'))).data, 'base64');
     gotBase64Buf = Buffer.from(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/gotBase64.json'))).data, 'base64');
   });
-
-  // TODO: setup opencv on travis with codecs correctly
-  if (!process.env.DOCKER_BUILD && !process.env.BINDINGS_DEBUG) {
-    videoCaptureTests();
-    videoWriterTests();
-  }
 
   describe('imread', () => {
     const flags = cv.IMREAD_UNCHANGED;

@@ -2,19 +2,10 @@
 #include "ioBindings.h"
 
 NAN_MODULE_INIT(Io::Init) {
-  VideoCapture::Init(target);
-  VideoWriter::Init(target);
-
   Nan::SetMethod(target, "imread", Imread);
-  Nan::SetMethod(target, "imshow", Imshow);
-  Nan::SetMethod(target, "imshowWait", ImshowWait);
   Nan::SetMethod(target, "imwrite", Imwrite);
-  Nan::SetMethod(target, "waitKey", WaitKey);
   Nan::SetMethod(target, "imencode", Imencode);
   Nan::SetMethod(target, "imdecode", Imdecode);
-  Nan::SetMethod(target, "moveWindow", MoveWindow);
-  Nan::SetMethod(target, "destroyWindow", DestroyWindow);
-  Nan::SetMethod(target, "destroyAllWindows", DestroyAllWindows);
 
   Nan::SetMethod(target, "imreadAsync", ImreadAsync);
   Nan::SetMethod(target, "imwriteAsync", ImwriteAsync);
@@ -65,58 +56,6 @@ NAN_MODULE_INIT(Io::Init) {
   FF_SET_JS_PROP(target, IMWRITE_PNG_STRATEGY_RLE, Nan::New<v8::Integer>(cv::IMWRITE_PNG_STRATEGY_RLE));
   FF_SET_JS_PROP(target, IMWRITE_PNG_STRATEGY_FIXED, Nan::New<v8::Integer>(cv::IMWRITE_PNG_STRATEGY_FIXED));
 };
-
-NAN_METHOD(Io::Imshow) {
-  FF_METHOD_CONTEXT("Imshow");
-  if (!info[0]->IsString()) {
-    FF_THROW("expected arg0 to be the window name");
-  }
-  if (!FF_IS_INSTANCE(Mat::constructor, info[1])) {
-    FF_THROW("expected arg1 to be an instance of Mat");
-  }
-  cv::imshow(FF_CAST_STRING(info[0]), FF_UNWRAP_MAT_AND_GET(info[1]->ToObject(Nan::GetCurrentContext()).ToLocalChecked()));
-}
-
-NAN_METHOD(Io::ImshowWait) {
-  FF_METHOD_CONTEXT("ImshowWait");
-  if (!info[0]->IsString()) {
-    FF_THROW("expected arg0 to be the window name");
-  }
-  if (!FF_IS_INSTANCE(Mat::constructor, info[1])) {
-    FF_THROW("expected arg1 to be an instance of Mat");
-  }
-  cv::imshow(FF_CAST_STRING(info[0]), FF_UNWRAP_MAT_AND_GET(info[1]->ToObject(Nan::GetCurrentContext()).ToLocalChecked()));
-  cv::waitKey();
-}
-
-NAN_METHOD(Io::WaitKey) {
-  int key;
-  if (info[0]->IsNumber()) {
-    key = cv::waitKey(info[0]->ToNumber(Nan::GetCurrentContext()).ToLocalChecked()->Value());
-  } else{
-    key = cv::waitKey();
-  }
-  FF_RETURN(Nan::New(key));
-}
-
-NAN_METHOD(Io::MoveWindow) {
-  FF_METHOD_CONTEXT("MoveWindow");
-  FF_ARG_STRING(0, std::string winName);
-  FF_ARG_INT(1, int x);
-  FF_ARG_INT(2, int y);
-  cv::moveWindow(winName, x, y);
-}
-
-NAN_METHOD(Io::DestroyWindow) {
-  FF_METHOD_CONTEXT("DestroyWindow");
-  FF_ARG_STRING(0, std::string winName);
-  cv::destroyWindow(winName);
-}
-
-NAN_METHOD(Io::DestroyAllWindows) {
-  FF_METHOD_CONTEXT("DestroyAllWindows");
-  cv::destroyAllWindows();
-}
 
 NAN_METHOD(Io::Imdecode) {
   FF_METHOD_CONTEXT("Imencode");

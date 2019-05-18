@@ -1,7 +1,5 @@
 #include "Mat.h"
 #include <opencv2/imgproc.hpp>
-#include "imgproc/Moments.h"
-#include "imgproc/Contour.h"
 #include "TermCriteria.h"
 
 #ifndef __FF_MATIMGPROC_H__
@@ -11,7 +9,6 @@ class MatImgproc {
 public:
   static void Init(v8::Local<v8::FunctionTemplate> ctor);
 
-  static NAN_METHOD(DrawContours);
   static NAN_METHOD(Rescale);
   static NAN_METHOD(RescaleAsync);
   static NAN_METHOD(Resize);
@@ -56,10 +53,6 @@ public:
   static NAN_METHOD(GrabCutAsync);
   static NAN_METHOD(Watershed);
   static NAN_METHOD(WatershedAsync);
-  static NAN_METHOD(_Moments);
-  static NAN_METHOD(_MomentsAsync);
-  static NAN_METHOD(FindContours);
-  static NAN_METHOD(FindContoursAsync);
   static NAN_METHOD(DrawLine);
   static NAN_METHOD(DrawArrowedLine);
   static NAN_METHOD(DrawRectangle);

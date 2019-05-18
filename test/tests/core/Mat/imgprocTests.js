@@ -845,24 +845,6 @@ module.exports = (getTestImg) => {
     });
   });
 
-  describe('moments', () => {
-    let grayImg;
-    before(() => {
-      grayImg = getTestImg().bgrToGray();
-    });
-
-    const isBinaryImg = true;
-    generateAPITests({
-      getDut: () => grayImg,
-      methodName: 'moments',
-      methodNameSpace: 'Mat',
-      getOptionalArgs: () => ([
-        isBinaryImg
-      ]),
-      expectOutput: res => expect(res).to.be.instanceOf(cv.Moments)
-    });
-  });
-
   describe('matchTemplate', () => {
     let img;
     const templOffset = { x: 10, y: 10 };
