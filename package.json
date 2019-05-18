@@ -55,5 +55,5 @@
   "devDependencies": {
     "prebuild": "^8.2.0"
   },
-  "opencv": "3.4.6-beta29"
+  "opencv": "3.4.6-beta30"
 }
