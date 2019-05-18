@@ -1,6 +1,6 @@
 {
   "name": "opencv4nodejs-prebuilt",
-  "version": "4.15.0-b6",
+  "version": "4.15.0-b7",
   "description": "This is a fork of opencv4nodejs which provides pre-built binaries",
   "keywords": [
     "opencv",
@@ -34,7 +34,7 @@
   "typings": "./lib/index.d.ts",
   "scripts": {
     "preinstall": "node ./install.js",
-    "install": "prebuild-install --tag-prefix \"\" --verbose || node-gyp rebuild",
+    "install": "prebuild-install --verbose || node-gyp rebuild",
     "configure": "node-gyp configure",
     "build": "node-gyp configure build",
     "rebuild": "node-gyp rebuild",
