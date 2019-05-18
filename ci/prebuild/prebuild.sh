@@ -2,6 +2,6 @@
 cd ../../ &&\
 npm install --unsafe-perm &&\
 cd test
-npm test
+npm install && npm test
 cd -
-npm run prebuild -- --tag-prefix "" -u $GITHUB_TOKEN;
+npm run prebuild -- -u $GITHUB_TOKEN;
