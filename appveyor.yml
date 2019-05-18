@@ -42,7 +42,7 @@ environment:
       DISABLE_ASYNC_HOOKS_TEST: 1
 
 install:
-  - IF EXIST c:\opencv-prebuilt RMDIR /S /Q c:\opencv-prebuilt
+  - IF EXIST c:\opencv-prebuilt rd /s /q c:\opencv-prebuilt
   # - cmd: choco install OpenCV -y -version %OPENCV_VERSION%
   - IF EXIST c:\tools\opencv* CD c:\tools\opencv*
   - SET OPENCV_INCLUDE_DIR=%CD%\build\include

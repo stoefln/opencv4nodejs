@@ -60,6 +60,8 @@ matrix:
 
 before_install:
   - chmod +x ./ci/$BUILD_TASK/$BUILD_TASK.sh;
+  - chmod +x ./ci/clean.sh
+  - bash ./ci/clean.sh
 
 install: true
 
