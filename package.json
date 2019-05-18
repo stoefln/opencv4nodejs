@@ -1,6 +1,6 @@
 {
   "name": "opencv4nodejs-prebuilt",
-  "version": "4.15.0-b7",
+  "version": "4.15.0-b8",
   "description": "This is a fork of opencv4nodejs which provides pre-built binaries",
   "keywords": [
     "opencv",
