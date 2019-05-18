@@ -35,7 +35,6 @@
 			"cc/core/TermCriteria.cc",
 			"cc/modules/io/io.cc",
 		],
-
 		"cflags" : [
 			"-std=c++11"
 		],
@@ -57,7 +56,6 @@
 			"GCC_ENABLE_CPP_EXCEPTIONS": "YES",
 			"MACOSX_DEPLOYMENT_TARGET": "10.9"
 		},
-
 		"conditions": [
 			[ "OS==\"win\"", {
 				"cflags": [
@@ -82,6 +80,14 @@
 				"ldflags": ["--coverage"]
 			},
     }
-
+	},
+	{
+		"target_name": "action_after_build",
+      	"type": "none",
+      	"dependencies": [ "opencv4nodejs" ],
+      	"copies": [{
+          "files": [ "<!@(node ./lib/bundle.js)" ],
+          "destination": "<(PRODUCT_DIR)"
+        }]
 	}]
 }
