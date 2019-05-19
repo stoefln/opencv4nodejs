@@ -79,15 +79,6 @@
 				"cflags": ["--coverage"],
 				"ldflags": ["--coverage"]
 			},
-    }
-	},
-	{
-		"target_name": "action_after_build",
-      	"type": "none",
-      	"dependencies": [ "opencv4nodejs" ],
-      	"copies": [{
-          "files": [ "<!@(node ./lib/bundle.js)" ],
-          "destination": "<(PRODUCT_DIR)"
-        }]
+		}
 	}]
 }
