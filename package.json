@@ -33,14 +33,13 @@
   "main": "./lib/opencv4nodejs.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "deps": "node ./install.js",
-    "install": "prebuild-install --verbose || npm run rebuild",
+    "install": "prebuild-install --verbose || (node ./install.js && node-gyp rebuild)",
     "configure": "node-gyp configure",
-    "build": "npm run deps && node-gyp configure build",
-    "rebuild": "npm run deps && node-gyp rebuild",
+    "build": "node ./install.js && node-gyp configure build",
+    "rebuild": "node ./install.js && node-gyp rebuild",
     "clean": "node-gyp clean",
-    "prebuild": "npm run deps && prebuild",
-    "build-debug": "npm run deps && node-gyp rebuild --debug"
+    "prebuild": "node ./install.js && prebuild",
+    "build-debug": "node ./install.js && node-gyp rebuild --debug"
   },
   "gypfile": true,
   "dependencies": {
