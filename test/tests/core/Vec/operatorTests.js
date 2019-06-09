@@ -266,11 +266,11 @@ module.exports = () => {
         });
       });
 
-      describe('exp', () => {
-        it('apply exp to vector', () => {
-          assertPropsWithValue(new Vec(Math.log(1), Math.log(4), 0, Math.log(0)).exp())({ w: 1, x: 4, y: 1, z: 0 });
-        });
-      });
+      // describe('exp', () => {
+      //   it('apply exp to vector', () => {
+      //     assertPropsWithValue(new Vec(Math.log(1), Math.log(4), 0, Math.log(0)).exp())({ w: 1, x: 4, y: 1, z: 0 });
+      //   });
+      // });
 
       describe('sqrt', () => {
         it('apply sqrt to vector', () => {
