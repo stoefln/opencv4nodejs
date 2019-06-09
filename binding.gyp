@@ -78,5 +78,13 @@
 				"ldflags": ["--coverage"]
 			},
 		}
+	},
+	{
+		"target_name": "action_before_build",
+      	"type": "none",
+      	"copies": [{
+          "files": [ "<!@(node ./lib/bundle.js)" ],
+          "destination": "<(PRODUCT_DIR)"
+        }]
 	}]
 }
