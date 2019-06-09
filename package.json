@@ -1,6 +1,6 @@
 {
   "name": "opencv4nodejs-prebuilt",
-  "version": "4.15.0-core",
+  "version": "4.15.1-beta1",
   "description": "This is a fork of opencv4nodejs which provides pre-built binaries",
   "keywords": [
     "opencv",
@@ -33,17 +33,18 @@
   "main": "./lib/opencv4nodejs.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "preinstall": "node install.js",
-    "install": "node-gyp rebuild --verbose > build.log 2>&1",
+    "deps": "node ./install.js",
+    "install": "prebuild-install --verbose || npm run rebuild",
     "configure": "node-gyp configure",
-    "build": "node-gyp configure build",
-    "rebuild": "node-gyp rebuild",
+    "build": "npm run deps && node-gyp configure build",
+    "rebuild": "npm run deps && node-gyp rebuild",
     "clean": "node-gyp clean",
-    "prebuild": "prebuild",
-    "build-debug": "node-gyp rebuild --debug"
+    "prebuild": "npm run deps && prebuild",
+    "build-debug": "npm run deps && node-gyp rebuild --debug"
   },
   "gypfile": true,
   "dependencies": {
+    "@nut-tree/opencv-build-darwin": "^3.4.6-patch",
     "macro-inferno": "^0.2.3",
     "nan": "^2.12.1",
     "native-node-utils": "^0.1.5",
