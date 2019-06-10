@@ -43,9 +43,6 @@
 			"-fno-rtti",
 			"-fno-exceptions"
 		],
-		"ldflags" : [
-			"-Wl,-rpath,'$$ORIGIN'"
-		],
 		"xcode_settings": {
 			"OTHER_CFLAGS": [
 				"-std=c++11",
@@ -70,6 +67,24 @@
 					},
 				}
 			}],
+	        ["OS==\"mac\"",
+	          {
+	            "link_settings": {
+	              "libraries": [
+					"-Wl,-rpath,@loader_path/."
+	              ],
+	            }
+	          }
+	        ],
+	        ["OS==\"linux\"",
+	          {
+	            "link_settings": {
+	              "libraries": [
+					"-Wl,-rpath,'$$ORIGIN'"
+	              ],
+	            }
+	          }
+	        ]
 		],
 
 		"configurations": {
