@@ -71,7 +71,7 @@
 	          {
 	            "link_settings": {
 	              "libraries": [
-					"-Wl,-rpath,@loader_path/."
+					"-Wl,-rpath,@loader_path",
 	              ],
 	            }
 	          }
@@ -80,7 +80,8 @@
 	          {
 	            "link_settings": {
 	              "libraries": [
-					"-Wl,-rpath,'$$ORIGIN'"
+					"-Wl,-rpath,'$$ORIGIN'",
+					"-Wl,-rpath,'$$ORIGIN'/.."
 	              ],
 	            }
 	          }
